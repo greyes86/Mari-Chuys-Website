@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+/* Gary Reyes
+	 CSC 465
+	 Homework 1
+	 10-15-2018
+*/
+
+.title
+{
+	text-align: center;
+	color: fuchsia;
+	font-size: 500%;
+}
+
+.subtitle
+{
+	color: white;
+	font-size: 300%;
+	
+}
+
+#signUp
+{
+	top: 0;
+	right: 0;
+	position: absolute;
+	padding: 0.5em 0.7em;
+	margin: 1%;
+	background-color: fuchsia;
+	
+}
+
+#img1
+{
+	display: block;
+	margin: auto;
+}
+
+.row
+{
+	display: flex;
+}
+
+.column
+{
+	float: left;
+  	width: 33.33%;
+  	padding: 5px;
+}
+
+body
+{
+    background-image: url("../images/IMG-20181015-WA0000.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+#info
+{
+	color: white;
+	font-size: 200%;
+	font-weight: 600;
+}
+
+.footer_style
+{
+	text-align: center;
+	font-size: 80%;
+	color: beige;
+}
