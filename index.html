@@ -1,59 +1,75 @@
 <!doctype html>
-<!-- Gary Reyes
-	 CSC 465
-	 Homework 1
-	 10-15-2018
--->
 <html lang="en">
 <head>
+	<!-- Required meta tags -->
 	<meta charset="utf-8">
-	<title>Marichuy's Taqueria</title>
-	<!--<link rel="stylesheet" href="styles/normalize.css">-->
-	<link rel="stylesheet" href="styles/main.css">
-</head>
-
-<body>
-	<header>
-		<h1 class="title">Marichuy's Taqueria</h1>
-		<img id="img1" src="images/marichuysLogo.png" height="400" width="400" alt="Logo">
-		<button id="signUp">Sign Up</button>
-	</header>
 	
-	<section>
-		<h2 class="subtitle">Welcome To Marichuy's Taqueria:</h2>
-		<p id="info">
+	<!-- Normalized stylesheet to adjust web browsers' margins -->
+	<link rel="stylesheet" href="styles/normalize.css">
+			
+	<!-- Customizable style sheet for proper look and feel -->
+	<link rel="stylesheet" href="styles/main.css">
+	
+	<!-- Media Querie to adapt website to any screen size -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Website Title -->
+	<title>Marichuy's Taqueria</title>
+</head>
+	
+<body>
+	<!-- Navbar for screen sizes of tablets and below -->
+	<nav id="mobile_menu"></nav>
+	
+	<!-- Normal navbar for computer screen sizes -->
+	<nav id="nav_menu">
+		<!-- Main menu links -->
+		<ul>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<a href="#">Link 2</a>
+				<!-- Submenu links -->
+				<ul>
+					<li>
+						<a href="#">Sublink 1</a>
+					</li>
+					<li>
+						<a href="#">Sublink 2</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Link 3</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<!-- Header section -->
+	<header>
+		<h1>Marichuy's Taqueria</h1>
+		<img src="images/marichuysLogo.png" alt="Logo">
+		<button>Sign Up</button>
+	</header>
+		
+	<!-- Main section -->
+	<main>
+		<h2>Welcome To Marichuy's Taqueria:</h2>
+		<p>
 			Coming soon to Jacksonville, NC. Marichuy's Taqueria, a real street tacos restaurant where you will enjoy the best of authentic Mexican food. Please keep visiting us for more updates, or if you would like to start by being part of this amazing journey feel free to sign up to create your account and set your profile to be ready for making online orders or just be updated on more information about our food or specials.
 		</p>
-		
-		<div class="row">
-			<div class="column">
-				<img src="images/IMG-20181015-WA0001.jpg" alt="Tacos Al Pastor">
-			</div>
-			
-			<div class="column">
-				<img src="images/IMG-20181015-WA0002.jpg" alt="Tacos, Burritos, Nachos">
-			</div>
-			
-			<div class="column">
-				<img src="images/IMG-20181015-WA0003.jpg" alt="Carne Asada Plate">
-			</div>
-			
-			<div class="column">
-				<img src="images/IMG-20181015-WA0004.jpg" alt="Quesadilla">
-			</div>
-			
-			<div class="column">
-				<img src="images/IMG-20181015-WA0005.jpg" alt="Carnita Tacos">
-			</div>
-		</div>
-	</section>
+		<!--<img src="images/IMG-20181015-WA0000.jpg"><br>
+		<img src="images/IMG-20181015-WA0001.jpg"><br>
+		<img src="images/IMG-20181015-WA0003.jpg"><br>
+		<img src="images/IMG-20181015-WA0004.jpg"><br>
+		<img src="images/IMG-20181015-WA0004.jpg"><br>-->
+	</main>
 	
+	<!-- Footer Section -->
 	<footer>
-		<p class="footer_style">
-			For more information please contact us at: <br>
-			910-346-4460 or <a href="mailto:taqueriamarichuy@hotmail.com">E-mail Us</a> <br>
-			&copy;Reyes &amp; Quevedo
-		</p>
+		For more information please contact us at:<br>
+		910-346-4460 or <a href="mailto:taqueriamarichuy@hotmail.com">E-mail Us</a><br>
+		&copy;Reyes &amp; Quevedo &amp; Lanier
 	</footer>
 </body>
 </html>

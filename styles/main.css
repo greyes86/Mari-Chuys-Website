@@ -1,72 +1,89 @@
 @charset "utf-8";
-/* CSS Document */
-/* Gary Reyes
-	 CSC 465
-	 Homework 1
-	 10-15-2018
-*/
-
-.title
-{
-	text-align: center;
-	color: fuchsia;
-	font-size: 500%;
+/* Styles for standard screens (960px and above) */
+* {
+	margin: 0;
+	padding: 0;
 }
 
-.subtitle
-{
-	color: white;
-	font-size: 300%;
-	
-}
-
-#signUp
-{
-	top: 0;
-	right: 0;
-	position: absolute;
-	padding: 0.5em 0.7em;
-	margin: 1%;
+html {
 	background-color: fuchsia;
-	
 }
 
-#img1
-{
-	display: block;
-	margin: auto;
-}
-
-.row
-{
-	display: flex;
-}
-
-.column
-{
-	float: left;
-  	width: 33.33%;
-  	padding: 5px;
-}
-
-body
-{
-    background-image: url("../images/IMG-20181015-WA0000.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+body {
+	font-size: 100%;
+	width: 90%;
+	margin: 10px auto;
+	background: -moz-linear-gradient(45deg, forestgreen, transparent 40%), -moz-linear-gradient(-125deg, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
+	background: -webkit-linear-gradient(45deg, forestgreen, transparent 40%), -webkit-linear-gradient(-125deg, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
+	background: -o-linear-gradient(45deg, forestgreen, transparent 40%), -o-linear-gradient(-125deg, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
+	background: linear-gradient(45deg, forestgreen, transparent 40%), linear-gradient(-125deg, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
 	background-size: 100% 100%;
+	box-shadow: 0 0 40px #000;
+	border-radius: 20px;
 }
 
-#info
-{
-	color: white;
-	font-size: 200%;
-	font-weight: 600;
+header {
+	text-align: center;
 }
 
-.footer_style
-{
+header h1 {
+	font-size: 400%;
+	color: fuchsia;
+}
+
+header img {
+	width: 60%;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+footer {
 	text-align: center;
 	font-size: 80%;
-	color: beige;
+}
+
+/* Changes to navbar for standard screens */
+#nav_menu ul {
+	width: 100%; 								/* Full width of body */
+}
+
+#nav_menu ul li {
+	width: 20%; 								/* 198 / 990 X 100 */
+}
+
+#nav_menu ul li:hoover ul {
+	width: 100%; 								/* Full width of list items */
+}
+
+#nav_menu ul li:hoover ul li:hoover ul li {
+	width: 100%;								/* Full width of list */
+}
+
+/* Hide the mobile menu initially */
+#mobile_menu {
+	display: none;
+}
+
+/* Styles to tablet size screens */
+@media only screen and (max-width: 959px) {
+	#nav_menu ul li a {
+		font-size: .875em;						/* 14 / 16 */
+	}
+}
+
+/* Styles to tablet size landscape portrati */
+@media only screen and (max-width: 767px) {
+	#nav_menu {
+		display: none;
+	}
+	
+	#mobile_menu {
+		display: block;
+	}
+}
+
+/* Styles to mobile size screens */
+@media only screen and (max-width: 479px) {
+	
 }
