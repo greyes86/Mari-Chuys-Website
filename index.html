@@ -21,23 +21,19 @@
 	<nav id="mobile_menu"></nav>
 	
 	<!-- Normal navbar for computer screen sizes -->
-	<nav id="nav_menu">
+	<nav>
 		<!-- Main menu links -->
 		<ul>
 			<li>
 				<a href="index.html">Home</a>
 			</li>
-			<li>
-				<a href="#">Link 2</a>
+			<li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">Link 2</a>
 				<!-- Submenu links -->
-				<ul>
-					<li>
-						<a href="#">Sublink 1</a>
-					</li>
-					<li>
-						<a href="#">Sublink 2</a>
-					</li>
-				</ul>
+				<div class="dropdown-content">
+					<a href="#">Sublink 1</a>
+					<a href="#">Sublink 2</a>
+				</div>
 			</li>
 			<li>
 				<a href="#">Link 3</a>
