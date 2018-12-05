@@ -10,6 +10,11 @@
 			</ul>
 		</li>
 		<li><a>Link 3</a></li>
-		<li style="float:right"><a>Link 4</a></li>
+		<li style="float:right">		<a>Login/Register</a>
+			<ul>
+				<li><a>Login</a></li>
+				<li><a>Register</a></li>
+			</ul>
+		</li>
 	</ul>
 </nav>
