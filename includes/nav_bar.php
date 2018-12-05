@@ -1,7 +1,7 @@
 <!-- Normal navbar for computer screen sizes -->
 <nav>
 	<ul>
-		<li><a href="index.html">Home</a></li>
+		<li><a href="index.php">Home</a></li>
 		<li>
 			<a>Link 2</a>
 			<ul>

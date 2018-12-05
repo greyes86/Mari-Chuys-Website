@@ -1,3 +1,7 @@
+<?php
+	include './includes/title.php';
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,13 +17,13 @@
 	<!-- Media Querie to adapt website to any screen size -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Website Title -->
-	<title>Marichuy's Taqueria</title>
+	<title>Marichuy's Taqueria<?php if(isset($title)) {echo "&mdash;$title";} ?></title>
 </head>
 	
 <body>	
 	<!-- Includes the navigation bar along with the header -->
 	<?php
-		include './includes/nav_bar.php';
+		require './includes/nav_bar.php';
 	?>
 	
 	<!-- Header section -->
