@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131882873665736588" remote="131882873670000000" Dst="1" />
-<file name="index.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885319915865663" remote="131885319970000000" Dst="1" />
+<file name="index.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885344909340778" remote="131885344950000000" Dst="1" />
+<file name="index.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131883311393879253" remote="131883330490000000" Dst="1" />
 <file name="login.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885299689012069" remote="131885299780000000" Dst="1" />
 <file name="register.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885299895920290" remote="131885299890000000" Dst="1" />
-<<<<<<< HEAD
-<file name="menu.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885338959552822" remote="131885338950000000" Dst="1" />
-<file name="favorites.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885334517537890" remote="131885334520000000" Dst="1" />
-<file name="logout.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885343300954908" remote="131885350100000000" Dst="1" />
-=======
 <file name="login.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885311617870583" remote="131885316840000000" Dst="1" />
 <file name="register.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885311617890602" remote="131885316850000000" Dst="1" />
 <file name="menu.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885347659304867" remote="131885350580000000" Dst="1" />
 <file name="favorites.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885347659114743" remote="131885347690000000" Dst="1" />
-<file name="logout.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885347659204800" remote="131885348250000000" Dst="1" />
+<file name="logout.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885361679716294" remote="131885361640000000" Dst="1" />
 <file name="about.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131885353345678779" remote="131885353150000000" Dst="1" />
->>>>>>> origin/master
 </dwsync>
