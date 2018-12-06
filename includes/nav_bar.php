@@ -10,11 +10,18 @@
 			</ul>
 		</li>
 		<li><a>Link 3</a></li>
-		<li style="float:right">		<a>Login/Register</a>
-			<ul>
-				<li><a href = "login.php">Login</a></li>
-				<li><a href = "register.php">Register</a></li>
-			</ul>
-		</li>
+		<?php
+			if ( (isset($_SESSION['email'])) && (basename($_SERVER['PHP_SELF']) != 'lougout.php'))
+			{
+				echo '<li style = "float:right"><a href = "lougout.php">Lougout</a></li>';
+			}
+			else
+			{
+				echo '<li style="float:right"><a>Login/Register</a>
+				<ul>
+					<li><a href = "login.php">Login</a></li>
+					<li><a href = "register.php">Register</a></li>';
+			}
+		?>
 	</ul>
 </nav>
