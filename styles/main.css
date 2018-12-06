@@ -128,3 +128,8 @@ footer p {
 	font-size: 80%;
     text-align: center;
 }
+
+.warning {
+	font-weight: bold;
+    color: #f00;
+}

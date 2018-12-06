@@ -1,6 +1,8 @@
 <?php
+	session_start();
 	include './includes/title.php';
 ?>
+
 
 <!doctype html>
 <html lang="en">

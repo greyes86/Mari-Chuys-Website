@@ -12,8 +12,8 @@
 		<li><a>Link 3</a></li>
 		<li style="float:right">		<a>Login/Register</a>
 			<ul>
-				<li><a>Login</a></li>
-				<li><a>Register</a></li>
+				<li><a src = "login.php">Login</a></li>
+				<li><a src = "register.php">Register</a></li>
 			</ul>
 		</li>
 	</ul>
