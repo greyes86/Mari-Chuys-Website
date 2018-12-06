@@ -11,7 +11,7 @@ require 'includes/header.php';
 </head>
 
 <body>
-	
+	<h2>THIS IS THE MENU PAGE</h2>
 </body>
 </html>
 <?php
