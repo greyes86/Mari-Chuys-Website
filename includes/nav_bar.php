@@ -3,10 +3,10 @@
 	<ul>
 		<li><a href="index.php">Home</a></li>
 		<li>
-			<a href="menu.php">Menu</a>
+			<a>Menu and Favorites</a>
 			<ul>
-				<li><a>SubLink 1</a></li>
-				<li><a>SubLink 2</a></li>
+				<li><a  href="menu.php">Menu</a></li>
+				<li><a>Favorites</a></li>
 			</ul>
 		</li>
 		<li><a href = "about.php">About Us</a></li>
