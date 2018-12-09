@@ -13,9 +13,7 @@ require 'includes/header.php';
 	<h1> YOU HAVE BEEN SUCCESSFULLY LOGGED OUT</h1><br>
 	<h3>Thank you for being a part of us. </h3><br>
 	<h3> Please click on home button to go back to our homepage.</h3>
-	<form action = "index.php">
-	<input type = submit value = "HOME">
-	</form>
+	<button type =button  name = "HOME" href ="index.php">HOME</button>
 </body>
 </html>
 
