@@ -25,7 +25,7 @@
 <body>	
 	<!-- Includes the navigation bar along with the header -->
 	<?php
-		require './includes/nav_bar.php';
+		include './includes/nav_bar.php';
 	?>
 	
 	<!-- Header section -->
