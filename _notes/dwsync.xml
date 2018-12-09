@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131882873665736588" remote="131882873670000000" Dst="1" />
+<file name="index.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888135006117349" remote="131888153340000000" Dst="1" />
 <file name="index.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885319915865663" remote="131885319970000000" Dst="1" />
 <file name="login.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885299689012069" remote="131885299780000000" Dst="1" />
 <file name="register.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131887835951017257" remote="131887835990000000" Dst="1" />
@@ -8,4 +8,13 @@
 <file name="favorites.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885334517537890" remote="131885334520000000" Dst="1" />
 <file name="logout.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885343300954908" remote="131885350100000000" Dst="1" />
 <file name="about.php" server="satoshi.cis.uncw.edu//home/gaq2085/public_html/" local="131885354649872520" remote="131885355110000000" Dst="1" />
+<file name="register.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888202370584046" remote="131888202380000000" Dst="1" />
+<file name="about.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888135005492322" remote="131888153340000000" Dst="1" />
+<file name="favorites.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888135005492322" remote="131888153340000000" Dst="1" />
+<file name="logout.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888135006273604" remote="131888153350000000" Dst="1" />
+<file name="menu.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888135006273604" remote="131888153350000000" Dst="1" />
+<file name="loggedin.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888223383111723" remote="131888224440000000" Dst="1" />
+<file name="login.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888223383151761" remote="131888224440000000" Dst="1" />
+<file name="upload_profile_image.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888234562043286" remote="131888234570000000" Dst="1" />
+<file name="upload_favorite_plates_image.php" server="satoshi.cis.uncw.edu//home/grr4558/public_html/" local="131888248491413068" remote="131888248500000000" Dst="1" />
 </dwsync>

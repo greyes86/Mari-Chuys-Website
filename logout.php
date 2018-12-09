@@ -2,7 +2,7 @@
 session_start();
 require_once('../mysqli_config2.php');
 include 'includes/header.php';
-if (!isset($_SESSION['email'])){
+if (!isset($_SESSION['EmailAddress'])){
 	$message1 = 'Sorry';
 	$message2 = 'You have reached this page in error!';
 }

@@ -16,11 +16,11 @@ if (isset($_POST['send'])) {
 		$missing[]='pwd';
 		echo "bad password";
 	}
-	//if you have a password make sure is sanitized and then hash it
+	
 	else
 		{
 		$password = filter_var(trim($_POST['pwd']), FILTER_SANITIZE_STRING);//filters password
-		//$hashedpw = password_hash ($password, PASSWORD_DEFAULT); //hashes password
+
 		echo"good password $password $hashedpw";
 	}
 	
@@ -93,11 +93,6 @@ include 'includes/header.php';
                     echo 'value="' . htmlspecialchars($email) . '"';
                 } ?>>
 					
-<!--
-                <input type ="text" name="email" id="email"<?php if (isset($email) && !$errors['email']) {
-                    echo " value=".htmlspecialchars($email);} ?>>
-				</p>
--->
 				
 				<p>
 				<?php if ($errors && in_array('pwd', $errors)) { ?>
