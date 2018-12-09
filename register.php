@@ -1,111 +1,165 @@
-<?php
-	ini_set('error_reporting', 1);
-	require './includes/header.php';
-	require_once '../mysqli_config2.php';  //$dbc is the connection string set upon successful connection
-		$missing = array();	
-		if(isset($_POST['submit'])) {
-			if (!empty($_POST['first']))
-			
-				$first=filter_var(trim($_POST['first']), FILTER_SANITIZE_STRING);
-			else
-				$missing[]= "first";
-		
-			if (!empty($_POST['last']))
-				
-				$last=filter_var(trim($_POST['last']), FILTER_SANITIZE_STRING);
-			else
-				$missing['last'] = "Last name is missing<br>";
-			
-			if (!empty($_POST['email']))
-				$email =filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-			else
-				$missing[] = "Email is missing<br>";
-			
-			if (!empty($_POST['pwd']))
-				$pwd = $_POST['pwd'];
-			else
-				$missing[] = "password";		
-			
-			if (!empty($_POST['conf']))
-				$conf = $_POST['conf'];
-			else
-				$missing[] = "confirmation";	
-			
-			if ($pwd != $conf) {
-				$missing[] = "mismatched";
-				$message = "The passwords don't match<br>";
-			}
-						
-			if (empty($missing))
-			{
-				require_once '../mysqli_config2.php';  //$dbc is the connection string set upon successful connection
-				echo "<main>";
-				
-//NEED TO ENTER QUERY HERE FROM RESTAURANT DATABASE	
-				
-//				$check= "SELECT emailAddr FROM JJ_reg_users WHERE emailAddr='$email'";
-//				$exists= mysqli_query($dbc, $check);//check if username is already in database
+<?php 
+	include('includes/header.php');
+?>
 
-				if(mysqli_num_rows($exists)>0){
-					echo "sorry $email already exists";
-				}
-				else{
-					//hash password before passing into query
-					$pwd = password_hash ($pwd, PASSWORD_DEFAULT); 
-					$query = "INSERT into JJ_reg_users(firstName, lastName, emailAddr, pw) VALUES ('$first', '$last', '$email','$pwd')";
-					$result = mysqli_query($dbc, $query);
-					if($result) { //It worked
-					echo "Thanks for registering".  htmlspecialchars($first). htmlspecialchars($last)."<br>";
-					echo "We will send a confirmation email to". htmlspecialchars($email)."<br>";
+<?php
+	
+	if (isset($_POST['submit'])) {
+	
+		// Create scalar variables for the form data:
+		if (!empty($_POST['first']))
+			$first = $_POST['first'];
+		else
+			$missing[] = "first";
+		
+		if (!empty($_POST['last']))
+			$last = $_POST['last'];
+		else
+			$missing[] = 'last';
+		
+		if (!empty($_POST['email']))
+			$email = $_POST['email'];
+		else
+			$missing[] = "email";
+		
+		if (!empty($_POST['phone']))
+			$phone = $_POST['phone'];
+		else
+			$missing[] = 'phone';
+		
+		if (!empty($_POST['address']))
+			$address = 'address';
+		else
+			$missing[] = 'address';
+		
+		if (!empty($_POST['city']))
+			$city = 'city';
+		else
+			$missing[] = 'city';
+		
+		if (!empty($_POST['state']))
+			$state = 'state';
+		else
+			$missing[] = 'state';
+		
+		if (!empty($_POST['zip']))
+			$zip = 'zip';
+		else
+			$missing[] = 'zip';
+		
+		
+		//The first option of a select list is the default, so there will always be something set
+		if ($_POST['age'] != "default") {
+			$age = $_POST['age'];
+		}
+		else
+			$missing[] = "age";
+		if ($missing) { //There is at least one element in the $missing array
+			echo 'You forgot the following form item(s):<br>';
+			//output the contents of the array
+			foreach ($missing as $value)
+			{
+				echo "<p>-$value</p>";
+			}
+		}
+		else {
+			//Form was filled out completely and submitted. Print the submitted information:
+			echo "<p>Thank you, $name, for the following comments:<br>";
+			echo "<pre>\"$comments\"</pre>"; //HTML pre is preformatted text. We are assuming the comment is non-malicious
+			echo "<p>We will reply to you at $email</p>";
+			echo "You entered <strong>$age</strong> for your year of birth, and <strong>$gender</strong> for your gender<br>";
+			exit;
+		}
+	}
+?>
+
+<form action="register.php" method="post">
+	<fieldset>
+		<legend>Enter your information in the form below:</legend>
+		
+		<p>
+			<label>
+				Name: 
+				<input type="text" name="name" size="20" maxlength="40" 
+					   value="<?php 
+							  	if (isset($_POST['name'])) {
+									echo $_POST['name'];
+								}
+							  ?>">
+			</label>
+		</p>
+
+		<p>
+			<label>
+				Email Address: 
+				<input type="email" name="email" size="40" maxlength="60"
+					   value="<?php
+							  	if (isset($_POST['email'])) {
+									echo $_POST['email'];
+								}
+							  ?>">
+			</label>
+		</p>
+
+		<p>
+			<label for="gender">
+				Gender: 
+			</label>
+			<input type="radio" name="gender" value="M" 
+				   <?php
+				   		if ($gender == 'M') {
+							echo 'checked="checked"';
+						}
+				   ?>> Male
+			
+			<input type="radio" name="gender" value="F"
+				   <?php
+				   		if ($gender == 'F') {
+					   		echo 'checked="checked"';
+				   		}
+				   ?>> Female
+		</p>
+
+		<p>
+			<label>
+				Year of birth:
+				<?php
+					echo '<select name="age">';
+					
+					define('START',1920);
+					define('END',2020);
+					$years = range(START, END);
+					$middleYear = floor((START + END)/2);
+				
+					foreach ($years as $value) {						
+						if($middleYear == $value){
+							echo "<option value=\"$value\" selected>$value</option>";
+						}
+						else {
+							echo "<option value=\"$value\">$value</option>\n";
+						}
+						
 					}
 					
-				}
-			echo "</main>";
-			include 'includes/footer.php';
-			exit;
-			}
-			
-	}
-	?>
-	<main>
-	<form method = "post" action="register.php">  
-	<!-- the get method would not normally be used for site registration -->
-	<!-- it is used here to help find the problems with the form -->
-		<fieldset>
-			<?php if ($missing)
-				echo "There were some problems. Please try again:<br>";
-			?>
-			<legend>Create Your Account with Us!</legend>
-			<label>
-				First Name:  
-				<input type="text" name="first" <?php if(isset($first)) echo " value=".htmlspecialchars($first);?>>
-			</label> 
-			<br>
-			<label>
-				Last Name: 
-				<input type="text" name="last" <?php if (isset($last)) echo " value=".htmlspecialchars($last);?>>
+					
+					echo '</select>';
+				?>
 			</label>
-			<br>
-			<label>
-				Email: 
-				<input type = "email" name="email" <?php if (isset($email)) echo " value=".htmlspecialchars($email);?>> 
-			</label>
-			<br>
-			<!-- Inform the user if the passwords don't match but never make them sticky -->
-			<?php if(isset($message)) echo "$message<br>"; ?>
-			<label>
-				Password:
-				<input type = "password" name="pwd"> 
-			</label>
-			<br>
-			<label>
-				Confirm Password: 
-				<input type = "password" name = "conf">
-			</label>
-		</fieldset>
-			<br>
-			<input type = submit value = "Register" name="submit">
-	</form>
-	</main>
-<?php include 'includes/footer.php'; ?>
+		</p>
 
+		<p>
+			<label>
+				Comments: 
+				<textarea name="comments" rows="3" cols="40"><?php echo $comments; ?></textarea>
+			</label>
+		</p>
+	</fieldset>
+	
+	<p align="center">
+		<input type="submit" name="submit" value="Submit My Information">
+	</p>
+</form>
+
+<?php
+	include('includes/footer.php');
+?>
