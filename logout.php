@@ -1,22 +1,23 @@
 <?php
-require 'includes/header.php';
-?>
+session_start();
+require_once('../mysqli_config2.php');
+include 'includes/header.php';
+if (!isset($_SESSION['email'])){
+	$message1 = 'Sorry';
+	$message2 = 'You have reached this page in error!';
+}
+else
+{
+	$_SESSION=[];
+	session_destroy();
+	setcookie('PHPSESSID', '', time()-3600, '/', '', 0, 0);
+	$message1 = 'You have logged out successfully';
+	$message2 = 'THANK YOU FOR BEING PART OF US!';
+}
 
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Logged Out</title>
-</head>
-
-<body>
-	<h1> YOU HAVE BEEN SUCCESSFULLY LOGGED OUT</h1><br>
-	<h3>Thank you for being a part of us. </h3><br>
-	<h3> Please click on home button to go back to our homepage.</h3>
-	<button type =button  name = "HOME" href ="index.php">HOME</button>
-</body>
-</html>
-
-<?php
-include './includes/footer.php';
+echo "<main>";
+echo "<h1>$message1</h1>";
+echo "<h2>$message2</h2>";
+echo "</main>";
+include 'includes/footer.php';
 ?>
