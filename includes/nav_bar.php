@@ -18,8 +18,10 @@
 				{
 					echo '<li><a>Upload Images</a>
 							<ul>
-								<li><a href = "upload_profile_image">Upload Profile Image</a></li>
-								<li><a href = "upload_favorite_plate_image">Upload Favorite Plate Image</a></li>
+								<li><a href = "upload_profile_image.php">Upload Profile Image</a></li>
+								<li><a href = "upload_favorite_plates_image.php">Upload Favorite Plate Image</a></li>
+								<li><a href = "profile_images.php">Show Profile Images</a></li>
+								<li><a href = "favorite_plates_images.php">Show Favorite Plate Images</a></li>
 							</ul>
 						   </li>';
 					echo '<li style="float:right"><a href = "logout.php">Logout</a></li>';
