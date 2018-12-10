@@ -70,12 +70,12 @@
 				//echo "Birthday is missing. <br>";
 			
 			if (!empty($_POST['pwd']))
-				$pwd = $_POST['pwd'];
+				$pwd = filter_var(trim($_POST['pwd']), FILTER_SANITIZE_STRING);
 			else
 				$missing[] = "password";		
 			
 			if (!empty($_POST['conf']))
-				$conf = $_POST['conf'];
+				$conf = filter_var(trim($_POST['conf']), FILTER_SANITIZE_STRING);
 			else
 				$missing[] = "confirmation";	
 			
@@ -107,6 +107,7 @@
 				}
 				else{
 					//hash password before passing into query
+					
 					$pwd = password_hash ($pwd, PASSWORD_DEFAULT); 
 					$query = "INSERT into Customer(FirstName, LastName, EmailAddress, PhoneNumber, Address, City, State, ZipCode, Password, DateOfBirth) VALUES ('$first', '$last', '$email', '$phone', '$address', '$city', '$state', '$zipcode', '$pwd', '$birth')";
 					$result = mysqli_query($dbc, $query);
@@ -132,7 +133,9 @@
 	<!-- the get method would not normally be used for site registration -->
 	<!-- it is used here to help find the problems with the form -->
 		<fieldset>
-			
+			<?php if ($missing)
+				echo "There were some problems. Please try again:<br>";
+			?>
 			
 			<legend>Create Your Account with Us!</legend>
 			<label>
@@ -167,17 +170,17 @@
 			
 			<label>
 				State:  
-				<input type="text" name="state" <?php if(isset($state)) echo " value=".htmlspecialchars($state);;?>>
+				<input type="text" name="state" <?php if(isset($state)) echo " value=".htmlspecialchars($state);?>>
 			</label> 
 			<br>
 			<label>
 				ZipCode:  
-				<input type="text" name="zipcode" <?php if(isset($zipcode)) echo " value=".htmlspecialchars($zipcode);;?>>
+				<input type="text" name="zipcode" <?php if(isset($zipcode)) echo " value=".htmlspecialchars($zipcode);?>>
 			</label> 
 			<br>
 				<label>
 				Date of Birth:  
-				<input type="text" name="birth" <?php if(isset($birth)) echo " value=".htmlspecialchars($birth);;?>>
+				<input type="text" name="birth" <?php if(isset($birth)) echo " value=".htmlspecialchars($birth);?>>
 			</label> 
 			<br>
 			<!-- Inform the user if the passwords don't match but never make them sticky -->
