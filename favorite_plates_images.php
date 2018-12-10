@@ -11,6 +11,15 @@
 				//This script lists the images in the uploads directory.
 				$dir = '../uploads'.$folder; // Define the directory to view.
 				$files = scandir($dir); // Read all the images into an array.
+				require_once('mysqli_config2.php');
+				$sql = "SELECT CustomerID FROM Customer WHERE Folder = '$folder'";
+				$customerID = mysqli_query($dbc, $sql);
+				$sql = "SELECT ImageName FROM User_Images WHERE CustomerID = '$customerID'";
+				$result = mysqli_query($dbc, $sql);
+				if ($result)
+				{
+					mysqli_fetch_array($result, MYSQLI_ASSOC);
+				}
 				echo '<p>Click on an image to view it in a separate window.</p>';
 				// Display each image caption as a link 
 				foreach ($files as $image) 

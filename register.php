@@ -2,72 +2,54 @@
 <?php
 	ini_set('error_reporting', 1);
 	include('./includes/header.php');
-	require_once '../mysqli_config2.php';
-//$dbc is the connection string set upon successful connection
-
+	require_once '../mysqli_config2.php'; //$dbc is the connection string set upon successful connection
 		$missing = array();
-
 		if(isset($_POST['submit'])) {
 				if (!empty($_POST['first']))
-			
-				$first=filter_var(trim($_POST['first']), FILTER_SANITIZE_STRING);
+				$first = stripslashes(mysqli_real_escape_string($dbc, trim($_POST['first'])));
 			else
-				$missing[]= "first";
+				$missing[] = "first";
 		
 			if (!empty($_POST['last']))
-				
-				$last=filter_var(trim($_POST['last']), FILTER_SANITIZE_STRING);
+				$last = stripslashes(mysqli_real_escape_string($dbc, trim($_POST['last'])));
 			else
 				$missing[] = "last";
-				//echo "Last name is missing<br>";
 			
 			if (!empty($_POST['email']))
-				$email =filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+				$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
 			else
-				$missing[] ="email"; 
-				//echo "Email is missing<br>";
+				$missing[] = "email"; 
 			
 			if (!empty($_POST['phone']))
-				
 				$phone=filter_var(($_POST['phone']), FILTER_SANITIZE_STRING);
 			else
 				$missing[] = "phone";
-				//echo "phone number is missing.<br>";
 			
 			if (!empty($_POST['address']))
-				
-				$address=filter_var(trim($_POST['address']), FILTER_SANITIZE_STRING);
+				$address = filter_var(trim($_POST['address']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] ="address";
-				//echo "Address is missing.<br>";
+				$missing[] = "address";
 			
 			if (!empty($_POST['city']))
-				
-				$city=filter_var(trim($_POST['city']), FILTER_SANITIZE_STRING);
+				$city = filter_var(trim($_POST['city']), FILTER_SANITIZE_STRING);
 			else
 				$missing[] = "city"; 
-				//echo "City is missing.<br>";
 				
 			if (!empty($_POST['state']))
-				
-				$state=filter_var(trim($_POST['state']), FILTER_SANITIZE_STRING);
+				$state = filter_var(trim($_POST['state']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] ="state";
-				//echo "State is missing.<br>";
+				$missing[] = "state";
 			
 			if (!empty($_POST['zipcode']))
-				
-				$zipcode=filter_var(trim($_POST['zipcode']), FILTER_SANITIZE_STRING);
+				$zipcode = filter_var(trim($_POST['zipcode']), FILTER_SANITIZE_STRING);
 			else
 				$missing[] = "zipcode";
-				//echo "ZipCode is missing.<br>";
 			
 			if (!empty($_POST['birth']))
 				
-				$birth=filter_var(trim($_POST['birth']), FILTER_SANITIZE_STRING);
+				$birth = filter_var(trim($_POST['birth']), FILTER_SANITIZE_STRING);
 			else
 				$missing[] = "birth";
-				//echo "Birthday is missing. <br>";
 			
 			if (!empty($_POST['pwd']))
 				$pwd = filter_var(trim($_POST['pwd']), FILTER_SANITIZE_STRING);
@@ -79,46 +61,45 @@
 			else
 				$missing[] = "confirmation";
 			
-			if ($pwd != $conf) {
+			if ($pwd != $conf) 
+			{
 				$missing[] = "mismatched";
 				$message = "The passwords don't match<br>";
-					}
-			if ($missing){
-//				echo "There were some problems. Please try again:<br>";
-				foreach ($missing as $value){
+			}
+			if ($missing)
+			{
+				foreach ($missing as $value)
+				{
 					echo "You forgot to enter: -$value";
 				}
 			}
-		
-			
 			if (empty($missing))
 			{
-				echo "we are here complete form";
 				require_once '../mysqli_config2.php';  //$dbc is the connection string set upon successful connection
 				echo "<main>";
 				
-				$check = "SELECT EmailAddress FROM Customer WHERE EmailAddress='$email'";
+				$check = "SELECT EmailAddress FROM Customer WHERE EmailAddress = '$email'";
 				$exists = mysqli_query($dbc, $check);//check if username is already in database
 
 				if(mysqli_num_rows($exists)>0){
 					echo "<h2>We are sorry, but the $email is already registered under another user.</h2>";
 					echo "<h2>Please try again.</h2>";
 				}
-				else{
+				else
+				{
 					//hash password before passing into query
-
 					$pwd = password_hash ($pwd, PASSWORD_DEFAULT);
 					$folder = preg_replace("/[^aa-zA-Z0-9]/", "", $email);
 					//make lowercase
                     $folder = strtolower($folder);
-					$query = "INSERT into Customer(FirstName, LastName, EmailAddress, PhoneNumber, Address, City, State, ZipCode, Password, DateOfBirth, Folder) VALUES ('$first', '$last', '$email', '$phone', '$address', '$city', '$state', '$zipcode', '$pwd', '$birth', '$folder')";
+					$query = "INSERT INTO Customer(FirstName, LastName, EmailAddress, PhoneNumber, Address, City, State, ZipCode, Password, DateOfBirth, Folder) VALUES ('$first', '$last', '$email', '$phone', '$address', '$city', '$state', '$zipcode', '$pwd', '$birth', '$folder')";
 					$result = mysqli_query($dbc, $query);
 					if($result) { //It worked
 						//create the directory in the uploads folder
 						$dirPath = "../uploads/".$folder;
 						mkdir($dirPath,0777);
-						echo "Thanks for registering " . htmlspecialchars($first) . " " . htmlspecialchars($last) . "<br>";
-						echo "We will send a confirmation email to ". htmlspecialchars($email)."<br>";
+						echo "<p>Thanks for registering " . htmlspecialchars($first) . " " . htmlspecialchars($last) . "<br>";
+						echo "We will send a confirmation email to " . htmlspecialchars($email) . "<br></p>";
 					}				
 				}
 			echo "</main>";
@@ -196,8 +177,7 @@
 						
 		</fieldset>
 		<br>
-			<input type = submit value = "Register" name="submit">
-		
+			<input type = submit value = "Register" name = "submit">
 	</form>
 		
 	</main>
