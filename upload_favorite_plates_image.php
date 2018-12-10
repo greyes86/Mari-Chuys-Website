@@ -75,7 +75,7 @@
 					if (file_exists($dirPath))
 					{
 						echo '<h2>We are sorry, but the file already exists.</h2>';
-						echo '<h2>Please try uploading the same file again to rewrite it or try uploading a new file.</h2>';
+						echo '<h2>Please try uploading a new file again.</h2>';
 					}
 					else 
 					{
