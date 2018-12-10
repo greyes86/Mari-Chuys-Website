@@ -14,19 +14,22 @@
 				if (in_array($_FILES['upload']['type'], $allowed)) 
 				{
 					// Move the file over.
+					
 					$folder = $_SESSION['Folder'];
 					$customerID = $_SESSION['CustomerID'];
 					$image_path = $_FILES['upload']['tmp_name'];
 					$image_name = $_FILES['upload']['name'];
 					$customerID = (int)($customerID);
 					$category = 1;
+					
+					
 					$dirPath = "../uploads/$folder/$image_name";
 					if ((move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/$folder/$image_name")))
 					{  //adjust path if needed
 						echo '<h2>The file '.$image_name.' has been uploaded!</h2>';
-						$type=$_FILES['upload']['type'];
+						$type = $_FILES['upload']['type'];
 						//write to database
-						require_once ('../mysqli_config.php'); // Connect to the db.
+						require_once ('../mysqli_config2.php'); // Connect to the db.
 						$sql = "INSERT into User_Images (CustomerID, ImageName, ImageType, Category) VALUES (?, ?, ?, ?)";
 						$stmt = mysqli_prepare($dbc, $sql);
 						mysqli_stmt_bind_param($stmt, "issi", $customerID, $image_name, $type, $category);
@@ -37,7 +40,7 @@
 						}
 						else 
 						{
-							echo gettype($category);
+							
 							echo '<h2>We were unable to save your file data.</h2></main>';
 						}						
 						echo "</main>";
@@ -53,6 +56,20 @@
 					{
 						echo '<h2>The file upload was unsuccessful.</h2>';
 						echo '<h3>Please try again.</h3>';
+						
+						echo"types of files  ";
+						echo " ($category) this is category: ";
+						echo gettype($category);
+						
+						echo " ($customerID)  this is customer ID: ";
+						echo gettype($customerID);
+						
+						echo " ($image_name) this is name: ";
+						echo gettype($image_name);
+						
+						echo " ($type) this is type: ";
+						echo gettype($type);
+					
 					}
 				} 
 				else 
