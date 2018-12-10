@@ -36,6 +36,7 @@ if (isset($_POST['send'])) {
 			if ($password == password_verify($password, $row['Password'])) 
 			{
 				$customerID = $row['CustomerID'];
+				$email = $row['EmailAddress'];
 				$firstName = $row['FirstName'];
 				$lastName = $row['LastName'];
 				$folder = $row['Folder'];
