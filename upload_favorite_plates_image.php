@@ -15,34 +15,28 @@
 				{
 					// Move the file over.
 					$folder = $_SESSION['Folder'];
-					$email = $_SESSION['EmailAddress'];
+					$customerID = $_SESSION['CustomerID'];
 					$image_path = $_FILES['upload']['tmp_name'];
 					$image_name = $_FILES['upload']['name'];
-					
+					$category = 1;
 					$dirPath = "../uploads/$folder/$image_name";
-					if (file_exists($dirPath))
-					{
-						echo '<h2>We are sorry, but the file already exists.</h2>';
-						echo '<h2>Please try uploading the same file again to rewrite it or try uploading a new file.</h2>';
-					}
-					else 
-					{
-						if ((move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/$folder/$image_name"))) 
-						{  //adjust path if needed
-							echo '<h2>The file '.$image_name.' has been uploaded!</h2>';	
-							$type=$_FILES['upload']['type'];
-							//write to database
-							require_once ('../mysqli_config.php'); // Connect to the db.
-							$sql = "INSERT into JJ_user_images (emailAddr, imageName, imageType) VALUES (?, ?, ?)";
+					if ((move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/$folder/$image_name")))
+					{  //adjust path if needed
+						echo '<h2>The file '.$image_name.' has been uploaded!</h2>';
+						$type=$_FILES['upload']['type'];
+						//write to database
+						require_once ('../mysqli_config.php'); // Connect to the db.
+							$sql = "INSERT into User_Images (CustomerID, ImageName, ImageType, Category) VALUES (?, ?, ?, ?)";
 							$stmt = mysqli_prepare($dbc, $sql);
-							mysqli_stmt_bind_param($stmt, "sss", $email, $image_name, $type);
+							mysqli_stmt_bind_param($stmt, "issi", $customerID, $image_name, $type, $category);
 							if (mysqli_stmt_execute($stmt))
 							{
 								echo '<h3>And the file data has been saved.</h3>';
-								include ('create_thumb.php');
+								//include ('create_thumb.php');
 							}
 							else 
 							{
+								echo "<h1>$customerID, $category</h1>"; 
 								echo '<h2>We were unable to save your file data.</h2></main>';
 							}						
 							echo "</main>";
@@ -59,7 +53,6 @@
 							echo '<h2>The file upload was unsuccessful.</h2>';
 							echo '<h3>Please try again.</h3>';
 						}
-					}
 				} 
 				else 
 				{ // Invalid type.
@@ -112,7 +105,7 @@
 	}
 ?>
 	<h2>Upload an image</h2>
-	<form enctype="multipart/form-data" action="upload_image.php" method="post">
+	<form enctype="multipart/form-data" action="upload_favorite_plates_image.php" method="post">
 		<input type="hidden" name="MAX_FILE_SIZE" value="2097152">
 		<fieldset>
 			<legend>Select a GIF, JPEG or PNG image of 2M or smaller to be uploaded:</legend>

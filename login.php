@@ -25,11 +25,9 @@ if (isset($_POST['send'])) {
 		require_once ('../mysqli_config2.php'); // Connect to the db. Adjust your path as needed
 		// Make the query:		
 		
-		$sql = "SELECT EmailAddress, FirstName, LastName, Password, Folder FROM Customer WHERE Customer.EmailAddress = '$email' ";
+		$sql = "SELECT CustomerID, EmailAddress, FirstName, LastName, Password, Folder FROM Customer WHERE Customer.EmailAddress = '$email' ";
 		//send the query to database
 		$result = mysqli_query($dbc, $sql);
-				
-		echo mysqli_num_rows($result);
 		//check if the results 
 		if(mysqli_num_rows($result)==1)
 		{ //email found
@@ -37,10 +35,12 @@ if (isset($_POST['send'])) {
 			//passwords match
 			if ($password == password_verify($password, $row['Password'])) 
 			{
+				$customerID = $row['CustomerID'];
 				$firstName = $row['FirstName'];
 				$lastName = $row['LastName'];
 				$folder = $row['Folder'];
 				session_start();
+				$_SESSION['CustomerID']=$customerID;
 				$_SESSION['FirstName']=$firstName;
 				$_SESSION['LastName']=$lastName;
 				$_SESSION['EmailAddress']=$email;
