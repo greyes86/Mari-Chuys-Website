@@ -64,7 +64,7 @@ if (isset($_POST['send'])) {
 }
 include 'includes/header.php';
 ?>
-	<main>
+	<main id="main_login">
 		<form method="post" action="login.php">
 			<fieldset>
 				<legend>Registered Users Login</legend>
@@ -97,7 +97,7 @@ include 'includes/header.php';
 					<input name="pwd" id="pw" type="password">
 				</p>
 				<p>
-					<input type="submit" name="send" value="Login">
+					<input type="submit" name="send" value="Login" class="buttons">
 				</p>
 			</fieldset>
 		</form>

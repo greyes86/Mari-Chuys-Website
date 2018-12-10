@@ -16,11 +16,10 @@ body {
 	width: 90%;
 	min-height: 96.95%;
 	margin: 15px auto;
-	background: -moz-linear-gradient(to top right, forestgreen, transparent 40%), -moz-linear-gradient(to bottom left, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
-	background: -webkit-linear-gradient(to top right, forestgreen, transparent 40%), -webkit-linear-gradient(to bottom left, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
-	background: -o-linear-gradient(to top right, forestgreen, transparent 40%), -o-linear-gradient(to bottom left, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
-	background: linear-gradient(to top right, forestgreen, transparent 40%), linear-gradient(to bottom left, red, transparent 40%), #f77 url("../images/escudo_nacional_mexicano_by_radikian.jpg") no-repeat scroll center;
-	background-size: 100% 100%;
+	background: -moz-linear-gradient(to top right, forestgreen, transparent 40%), -moz-linear-gradient(to bottom left, red, transparent 40%), #fff url("../images/escudo_nacional_mexicano_by_radikian.jpg")no-repeat center center;
+	background: -webkit-linear-gradient(to top right, forestgreen, transparent 40%), -webkit-linear-gradient(to bottom left, red, transparent 40%), #fff url("../images/escudo_nacional_mexicano_by_radikian.jpg")no-repeat center center;
+	background: -o-linear-gradient(to top right, forestgreen, transparent 40%), -o-linear-gradient(to bottom left, red, transparent 40%), #fff url("../images/escudo_nacional_mexicano_by_radikian.jpg")no-repeat center center;
+	background: linear-gradient(to top right, forestgreen, transparent 40%), linear-gradient(to bottom left, red, transparent 40%), #fff url("../images/escudo_nacional_mexicano_by_radikian.jpg")no-repeat center center;
 	box-shadow: 0 0 40px #000;
 	border-radius: 20px;
 }
@@ -112,8 +111,11 @@ main h2 {
 	padding: 0 1em;
 }
 
-main p {
-	padding: 1em;
+#main_p {
+	padding: 1em 25em 1em 5em;
+	font-size: 125%;
+	font-weight: bolder;
+	color: steelblue;
 }
 
 footer {
@@ -132,4 +134,101 @@ footer p {
 .warning {
 	font-weight: bold;
     color: #f00;
+}
+
+#missingRegister {
+	clear: both;
+	padding-left: 3em;
+	font-weight: 600;
+	color: red;
+}
+
+fieldset {
+	border: none;
+	padding-left: 5em;
+	font-weight: 800;
+}
+
+.buttons {
+	font-size: 120%;
+}
+
+#menu_main {
+	clear: both;
+	padding: 0 12%;
+}
+
+#menu_main h2 {
+	font-size: 300%;
+}
+
+#menu_main h3 {
+	font-size: 150%;
+}
+
+#menu_main table {
+	width: 15%;
+}
+
+#details_column {
+	text-align: center;
+}
+
+#details_column a {
+	color: red;
+	font-weight: bolder;
+    text-decoration: none;
+}
+
+#details_column a:hover, a:focus {
+    font-style: italic;
+}
+
+#plates {
+	font-weight: bold;
+}
+
+thead {
+	font-weight: bolder;
+}
+
+#menu_details_main {
+	padding-left: 5%;
+	padding-bottom: 5%;
+}
+
+.upload_buttons {
+	font-size: 120%;
+}
+
+#p_images {
+	padding-left: 5em;
+	font-size: 130%;
+	font-weight: bold;
+}
+
+.li_images {
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+.p_about_us {
+	padding-left: 5em;
+	padding-right: 25em;
+	font-size: 125%;
+	font-weight: bolder;
+	color: steelblue;
+}
+
+#about_us_h1 {
+	clear: both;
+	padding-left: 3em;
+}
+
+#main_logout {
+	padding-left: 3em;
+}
+
+#main_login {
+	font-size: 120%;
 }

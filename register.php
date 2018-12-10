@@ -8,58 +8,58 @@
 				if (!empty($_POST['first']))
 				$first = stripslashes(mysqli_real_escape_string($dbc, trim($_POST['first'])));
 			else
-				$missing[] = "first";
+				$missing[] = "First Name";
 		
 			if (!empty($_POST['last']))
 				$last = stripslashes(mysqli_real_escape_string($dbc, trim($_POST['last'])));
 			else
-				$missing[] = "last";
+				$missing[] = "Last Name";
 			
 			if (!empty($_POST['email']))
 				$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
 			else
-				$missing[] = "email"; 
+				$missing[] = "Email Address"; 
 			
 			if (!empty($_POST['phone']))
 				$phone=filter_var(($_POST['phone']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "phone";
+				$missing[] = "Phone Number";
 			
 			if (!empty($_POST['address']))
 				$address = filter_var(trim($_POST['address']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "address";
+				$missing[] = "Address";
 			
 			if (!empty($_POST['city']))
 				$city = filter_var(trim($_POST['city']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "city"; 
+				$missing[] = "City"; 
 				
 			if (!empty($_POST['state']))
 				$state = filter_var(trim($_POST['state']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "state";
+				$missing[] = "State";
 			
 			if (!empty($_POST['zipcode']))
 				$zipcode = filter_var(trim($_POST['zipcode']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "zipcode";
+				$missing[] = "Zip Code";
 			
 			if (!empty($_POST['birth']))
 				
 				$birth = filter_var(trim($_POST['birth']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "birth";
+				$missing[] = "Date of Birth";
 			
 			if (!empty($_POST['pwd']))
 				$pwd = filter_var(trim($_POST['pwd']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "password";		
+				$missing[] = "Password";		
 			
 			if (!empty($_POST['conf']))
 				$conf = filter_var(trim($_POST['conf']), FILTER_SANITIZE_STRING);
 			else
-				$missing[] = "confirmation";
+				$missing[] = "Confirmation Password";
 			
 			if ($pwd != $conf) 
 			{
@@ -70,7 +70,7 @@
 			{
 				foreach ($missing as $value)
 				{
-					echo "You forgot to enter: -$value";
+					echo "<p id=missingRegister>You forgot to enter: $value</p>";
 				}
 			}
 			if (empty($missing))
@@ -141,7 +141,7 @@
 			<br>
 			<label>
 				Address:  
-				<input type="text" name="address" <?php if(isset($address)) echo " value=".htmlspecialchars($address);?>>"
+				<input type="text" name="address" <?php if(isset($address)) echo " value=".htmlspecialchars($address);?>>
 			</label> 
 			<br>
 			<label>
@@ -155,7 +155,7 @@
 			</label> 
 			<br>
 			<label>
-				ZipCode:
+				Zip Code:
 				<input type="text" name="zipcode" <?php if(isset($zipcode)) echo " value=".htmlspecialchars($zipcode);?>>
 			</label> 
 			<br>
@@ -174,10 +174,10 @@
 				Confirm Password: 
 				<input type = "password" name = "conf">
 			</label>
-						
+			<br>
+			<br>
+			<input type = submit value = "Register" name = "submit" class="buttons">		
 		</fieldset>
-		<br>
-			<input type = submit value = "Register" name = "submit">
 	</form>
 		
 	</main>

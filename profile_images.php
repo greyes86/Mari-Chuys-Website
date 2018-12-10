@@ -18,7 +18,7 @@
 				{
 					mysqli_fetch_all($result, MYSQLI_ASSOC);
 				}
-				echo '<p>Click on an image to view it in a separate window.</p>';
+				echo '<p id="p_images">Click on an image to view it in a separate window.</p>';
 				// Display each image caption as a link
 				foreach ($files as $image)
 				{
@@ -32,7 +32,7 @@
 							if ($row['ImageName'] == $image_name)
 							{
 								// Print the information:
-								echo "<li><a href=\"show_image.php?image=".$image."\">".$image."</a></li>\n";
+								echo "<li class=\"li_images\"><a href=\"show_image.php?image=".$image."\">".$image."</a></li>\n";
 							}
 					} // End of the IF.
 				} // End of the foreach loop.				

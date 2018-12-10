@@ -16,7 +16,7 @@
 		$message2 = 'THANK YOU FOR BEING PART OF US!';
 	}
 
-	echo "<main>";
+	echo "<main id=\"main_logout\">";
 	echo "<h1>$message1</h1>";
 	echo "<h2>$message2</h2>";
 	echo "</main>";

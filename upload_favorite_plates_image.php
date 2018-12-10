@@ -118,10 +118,10 @@
 		<fieldset>
 			<legend>Select a GIF, JPEG or PNG image of 2M or smaller to be uploaded:</legend>
 			<label>
-				File:<input type="file" name="upload">
+				File:<input type="file" name="upload" class="upload_buttons">
 			</label>
 			<label>And press
-				<input type="submit" name="submit" value="Submit">
+				<input type="submit" name="submit" value="Submit" class="upload_buttons">
 			</label>
 		</fieldset>
 	</form>

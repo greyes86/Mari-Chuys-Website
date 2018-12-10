@@ -16,6 +16,9 @@
 	<!-- Customizable style sheet for proper look and feel -->
 	<link rel="stylesheet" href="styles/main.css">
 	
+	<!-- Style for the slideshow functioning -->
+	<link rel=stylesheet href="styles/slideshow.css">
+	
 	<!-- Media Querie to adapt website to any screen size -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Website Title -->
