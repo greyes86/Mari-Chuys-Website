@@ -24,12 +24,14 @@
 	
 <body>	
 	<!-- Includes the navigation bar along with the header -->
-	<?php
-		include './includes/nav_bar.php';
-	?>
+	
 	
 	<!-- Header section -->
 	<header>
+		<div id="wrapper">
+		<?php
+		require './includes/nav_bar.php';//may need to remove div id="wrapper"
+	?>
 		<img src="images/marichuysLogo.png" alt="Logo">
 		<h1>Marichuy's Taqueria</h1>
 	</header>
