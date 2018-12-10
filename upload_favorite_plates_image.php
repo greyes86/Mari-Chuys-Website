@@ -18,6 +18,7 @@
 					$customerID = $_SESSION['CustomerID'];
 					$image_path = $_FILES['upload']['tmp_name'];
 					$image_name = $_FILES['upload']['name'];
+					$customerID = (int)($customerID);
 					$category = 1;
 					$dirPath = "../uploads/$folder/$image_name";
 					if ((move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/$folder/$image_name")))
@@ -26,33 +27,33 @@
 						$type=$_FILES['upload']['type'];
 						//write to database
 						require_once ('../mysqli_config.php'); // Connect to the db.
-							$sql = "INSERT into User_Images (CustomerID, ImageName, ImageType, Category) VALUES (?, ?, ?, ?)";
-							$stmt = mysqli_prepare($dbc, $sql);
-							mysqli_stmt_bind_param($stmt, "issi", $customerID, $image_name, $type, $category);
-							if (mysqli_stmt_execute($stmt))
-							{
-								echo '<h3>And the file data has been saved.</h3>';
-								//include ('create_thumb.php');
-							}
-							else 
-							{
-								echo "<h1>$customerID, $category</h1>"; 
-								echo '<h2>We were unable to save your file data.</h2></main>';
-							}						
-							echo "</main>";
-							include './includes/footer.php'; 
-							// Delete the file if it still exists:
-							if (file_exists ($_FILES['upload']['tmp_name']) && is_file($_FILES['upload']['tmp_name']))
-							{
-								unlink ($_FILES['upload']['tmp_name']);
-							}
-							exit;
-						} // End of move... IF.	
+						$sql = "INSERT into User_Images (CustomerID, ImageName, ImageType, Category) VALUES (?, ?, ?, ?)";
+						$stmt = mysqli_prepare($dbc, $sql);
+						mysqli_stmt_bind_param($stmt, "issi", $customerID, $image_name, $type, $category);
+						if (mysqli_stmt_execute($stmt))
+						{
+							echo '<h3>And the file data has been saved.</h3>';
+							//include ('create_thumb.php');
+						}
 						else 
 						{
-							echo '<h2>The file upload was unsuccessful.</h2>';
-							echo '<h3>Please try again.</h3>';
+							echo gettype($category);
+							echo '<h2>We were unable to save your file data.</h2></main>';
+						}						
+						echo "</main>";
+						include './includes/footer.php'; 
+						// Delete the file if it still exists:
+						if (file_exists ($_FILES['upload']['tmp_name']) && is_file($_FILES['upload']['tmp_name']))
+						{
+							unlink ($_FILES['upload']['tmp_name']);
 						}
+						exit;
+					} // End of move... IF.	
+					else 
+					{
+						echo '<h2>The file upload was unsuccessful.</h2>';
+						echo '<h3>Please try again.</h3>';
+					}
 				} 
 				else 
 				{ // Invalid type.
