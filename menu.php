@@ -44,8 +44,6 @@
 					<td id="details_column"><?php echo'<a href="menu_details.php?id='. $row['Plate_id'].'">View Details</a>';?></td>
 				</tr><?php } //endforeach loop ?>
 			</tbody>
-			
-			
 		</table>
   </main>
 <?php include './includes/footer.php'; ?>

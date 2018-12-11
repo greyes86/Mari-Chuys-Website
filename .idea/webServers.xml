@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="00512737-cb7d-4a44-8337-66520c7cd2ed" name="Satoshi" url="http://satoshi.cis.uncw.edu/~grr4558/">
+        <fileTransfer host="satoshi.cis.uncw.edu" port="22" rootFolder="/home/grr4558/public_html" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
