@@ -16,11 +16,11 @@
 		mysqli_fetch_all($result, MYSQLI_ASSOC);
 	else 
 	{ 
-		echo mysqli_error($result);  //Change to a generic message error before deployment
-		mysqli_close($dbc);
-		exit; 
+		//echo mysqli_error($result);  //Change to a generic message error before deployment
+		//mysqli_close($dbc);
+		//exit;
 		//or for deployment
-		//echo "We are unable to process your request at  this  time. Please try again later.";
+		echo "We are unable to process your request at  this  time. Please try again later.";
 		include './includes/footer.php'; 
 		exit;
 	} 
